@@ -1,35 +1,17 @@
-[![Build Status](https://travis-ci.org/Nikolay-Kha/PyCNC.svg?branch=master)](https://travis-ci.org/Nikolay-Kha/PyCNC)
+# CNC Bex Killer
 
-
-![](https://cloud.githubusercontent.com/assets/8740775/26766365/14796b54-4999-11e7-8ca2-9428a45878ab.png)  
-
-PyCNC is a free open-source high-performance G-code interpreter and
-CNC/3D-printer controller. It can run on a variety of Linux-powered ARM-based
-boards, such as Raspberry Pi, Odroid, Beaglebone and others. This gives you a
-flexibility to pick a board you are most familiar with, and use everything
-Linux has to offer, while keeping all your G-code runtime on the same board
-without a need to have a separate microcontroller for real-time operation.
-Our choice of Python as main programming language significantly reduces code
-base compared to C/C++ projects, reduces boilerplate and microcontroller-specific
-code, and makes the project accessible to a broader audience to tinker with.
-
-# Realtime Motor Control in Linux?
-Typically there is no way to control stepper motors from Linux runtime
-environment due to the lack of real time GPIO control. Even kernel based
-modules can not guarantee precise control of pulses for steppers.
-However, we can use a separate hardware module, DMA (Direct Memory Access)
-which provides high precision for GPIO outputs. This module can copy bytes which
-represent GPIO states from RAM buffer directly to GPIO with some clock based
-on main chip internal oscillator without using CPU's cores. Using such approach
-this project generates impulses for moving stepper motors and that is very
-precise way regardless CPU load and OS time jitter.  
-This approach also allows to use Python language for this project. Typically,
-Python is not good choice for real time application, but since project just
-needs to set up DMA buffers and hardware will do the rest, Python become the
-perfect choice for easy development of this project.
+CNC Bex Killer is a free open-source high-performance G-code interpreter and
+CNC killing machine. It can run on a variety of Linux-powered ARM-based
+boards, such as Raspberry Pi, Odroid, Beaglebone and others. This gives you the full
+power to kill the heavy  woman with the press of a button. Design features include
+the ability to CNC very huge things, such as a very heavy fat person. CNC Bex Killer
+utilizes extreme rotary motion to obliterate Bex fat and causes her suffering. Our
+choice of Python as main programming language significantly reduces code base
+compared to C/C++ projects, reduces boilerplate and microcontroller-specific code,
+and makes the project accessible to a broader audience to tinker with.
 
 Video demo - [YouTube video](https://youtu.be/41wdmmztTNA)  
-And the original video when PyCNC was just a prototype [YouTube video](https://youtu.be/vcedo59raS4)
+And the original video when CNC Bex Killer was just a prototype [YouTube video]()
 
 # Current gcode and features support
 * Commands G0, G1, G2, G3, G4, G17, G18, G19, G20, G21, G28, G53, G90, G91, G92,
@@ -43,8 +25,8 @@ file.
 * Hardware watchdog.
 
 # Watchdog
-PyCNC uses one of DMA channels as hardware watchdog for safety purpose. If
-board, OS or PyCNC hangs this watchdog should disable all GPIO pins(by
+CNC Bex Killer uses one of DMA channels as hardware watchdog for safety purpose.
+If board, OS or PyCNC hangs this watchdog should disable all GPIO pins(by
 switching them into input state, for RPi this would be GPIO0-29) in 15 seconds.
 Since there is a high current and dangerous devices like heated bed, extruder
 heater, this feature should prevent uncontrollable overheating. But don't count
